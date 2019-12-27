@@ -11,7 +11,7 @@ if [ -n "$XXNAME" ]; then
 else
   if [ $# = 1 ]; then imagename=$1; else imagename="pietere/terraform"; fi
 
-  echo "# This container provides Terraform, Azure and additionals tools. "
+  echo "# This container provides Terraform $TERRAFORM_VERSION, Azure and additionals tools. "
   echo "#"
   echo "# Source this output to add aliases for frequently used commands;"
   echo "#	  . <(docker run --rm $imagename $imagename) OR (docker run --rm $imagename $imagename) >> ~/.bash_aliases"
@@ -24,7 +24,7 @@ else
   echo "#"
   echo "# Note: the CWD is mounted as ~ in the container."
   echo 
-  echo "alias terraform=\"docker run -ti --rm -e XXNAME=\$(id -un) -e XXUID=\$(id -u) -e XXGID=\$(id -g) -v \$(pwd):/home/\$(id -un) $imagename terraform \""
-  echo "alias az=\"docker run -ti --rm -e XXNAME=\$(id -un) -e XXUID=\$(id -u) -e XXGID=\$(id -g) -v \$(pwd):/home/\$(id -un) $imagename az \""
-  echo "alias enter-terraform-azure-container=\"docker run -ti --rm -e XXNAME=\$(id -un) -e XXUID=\$(id -u) -e XXGID=\$(id -g) -v \$(pwd):/home/\$(id -un) $imagename \""
+  echo "alias terraform=\"docker run -ti --rm -e XXNAME=\$(id -un) -e XXUID=\$(id -u) -e XXGID=\$(id -g) -v \\\$(pwd):/home/\$(id -un) $imagename terraform \""
+  echo "alias az=\"docker run -ti --rm -e XXNAME=\$(id -un) -e XXUID=\$(id -u) -e XXGID=\$(id -g) -v \\\$(pwd):/home/\$(id -un) $imagename az \""
+  echo "alias enter-terraform-azure-container=\"docker run -ti --rm -e XXNAME=\$(id -un) -e XXUID=\$(id -u) -e XXGID=\$(id -g) -v \\\$(pwd):/home/\$(id -un) $imagename \""
 fi

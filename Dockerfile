@@ -2,6 +2,8 @@ FROM ubuntu:18.04
 
 ARG TERRAFORM_VERSION=0.12.18
 
+ENV  TERRAFORM_VERSION $TERRAFORM_VERSION
+
 # Tools
 RUN apt-get update \
  && apt-get install -y curl jq python unzip \
